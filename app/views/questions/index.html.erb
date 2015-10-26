@@ -1,0 +1,9 @@
+<div id='question_form'>
+
+</div>
+<%= link_to 'New Question', new_question_path, class: 'btn btn-info', id: 'new_question_btn', remote: true %>
+<br>
+<h3>Questions:</h3>
+<div id='question_container'>
+  <%= render @questions %>
+</div>

@@ -1,0 +1,10 @@
+<h1>hi</h1>
+<%= link_to 'Answers', new_question_answer_path, class: 'btn btn-info', remote: true, id: 'a_btn' %>
+<div id='a_form'>
+
+</div>
+
+<h2>Answers:</h2>
+<div id="a_div">
+  <%= render @answers %>
+</div>

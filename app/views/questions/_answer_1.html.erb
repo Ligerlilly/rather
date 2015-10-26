@@ -1,0 +1,11 @@
+<div class="col-md-6">
+  <center>
+    <%= image_tag question.answers.first.picture, class: 'pic' %>
+    <h4><%= question.answers.first.body %></h4>
+    <% if question.clicks.any? %>
+      <p class='vote-1-<%= question.id %>'>
+         <%= question.answers.first.votes %>
+      </p>
+    <% end %>
+  </center>
+</div>

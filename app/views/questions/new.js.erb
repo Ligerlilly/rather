@@ -1,0 +1,5 @@
+$('#new_question_btn').hide();
+
+if( $("#content-field").length !== 1 ) {
+  $('#question_form').append("<%= j render 'form' %>");
+}

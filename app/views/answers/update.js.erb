@@ -1,0 +1,6 @@
+$(".vote-1-<%= @answer.question.id %>").removeClass("hidden").text("<%= @answer1_votes %>");
+$(".vote-2-<%= @answer.question.id %>").removeClass("hidden").text("<%= @answer2_votes %>");
+$("#hideOnUpdate").remove();
+
+$("#showOnUpdate").append("<%= j render 'questions/answer_1', question: @answer.question %>");
+$("#showOnUpdate").append("<%= j render 'questions/answer_2', question: @answer.question %>");

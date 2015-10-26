@@ -1,0 +1,14 @@
+<%= form_for [@question, Answer.new], remote: true do |f| %>
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_field :body, class: 'form-control' %>
+  </div>
+
+  <div id="form-group">
+    <%= f.label :picture %>
+    <%= f.text_field :picture, class: 'form-control' %>
+  </div>
+
+  <%= f.hidden_field :question_id, value: @question.id %>
+  <%= f.submit %>
+<% end %>

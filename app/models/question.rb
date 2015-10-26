@@ -1,6 +1,11 @@
 class Question < ActiveRecord::Base
-  has_many :answers
+  has_many :answers, dependent: :destroy
   belongs_to :user
+  has_many :clicks, dependent: :destroy
 
-  validates :content, presence: true
+  # method to order by clicks (most)
+
+  # default scope to most recent
+
+  # order by controversial (closest to 50%)
 end

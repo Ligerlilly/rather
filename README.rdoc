@@ -1,5 +1,5 @@
 == README
-
+<%= link_to 'vote', {action: :update, controller: :answers, question_id: question.id}, method: :put  %>
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
