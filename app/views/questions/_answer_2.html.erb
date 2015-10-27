@@ -3,9 +3,11 @@
     <%= image_tag question.answers.last.picture, class: 'pic' %>
     <h4><%= question.answers.last.body %></h4>
     <% if question.clicks.any? %>
+    <% if question.clicks.find_by_user_id(current_user.id)  %>
       <p class='vote-2-<%= question.id %>'>
         <%= question.answers.last.votes %>
       </p>
+    <% end %>
     <% end %>
     </center>
 </div>

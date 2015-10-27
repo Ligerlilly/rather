@@ -38,7 +38,8 @@ class AnswersController < ApplicationController
 
     @click = Click.new({user_id: user_id, question_id: @answer.question.id})
 
-    if @answer.increment!("votes") && @click.save
+    if @answer.increment!("votes") && @click.save && @answer.question.increment!("votes")
+      
       respond_to do |format|
         format.js
       end

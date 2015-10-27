@@ -3,6 +3,17 @@
 </div>
 <%= link_to 'New Question', new_question_path, class: 'btn btn-info', id: 'new_question_btn', remote: true %>
 <br>
+
+
+<div class="row">
+  <%= link_to questions_path(:sort => 'most_recent') do %>
+    <button class="btn btn-default">Most Recent</button>
+  <% end %>
+  <%= link_to questions_path(:sort => 'popular') do %>
+    <button class="btn btn-default">Popular</button>
+  <% end %>
+</div>
+
 <h3>Questions:</h3>
 <div id='question_container'>
   <%= render @questions %>

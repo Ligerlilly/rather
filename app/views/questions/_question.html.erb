@@ -8,7 +8,7 @@
 
     <% if question.answers.count == 2 %>
       <div id="row text-center test">
-        <% unless question.clicks.any? %>
+        <% unless question.clicks.find_by_user_id(current_user.id)  %>
           <div id="hideOnUpdate">
             <%= link_to question_answer_path(question, question.answers.first), method: :patch, remote: true do %>
               <%= render 'answer_1', question: question %>

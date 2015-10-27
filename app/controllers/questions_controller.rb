@@ -2,9 +2,14 @@ class QuestionsController < ApplicationController
   before_action :find_question, except: [:new, :index, :create]
 
   def index
-    @questions = Question.all.order(created_at: :desc)
     if params[:sort] == "popular"
-      @questions = Question.all.order()
+      # @questions = Question.where("SELECT * FROM questions INNER JOIN clicks ON questions.id=clicks.question_id")
+      #@movies = @category. movies.sort_by {|movie| movie.reviews.count}
+      @questions = Question.all.order(votes: :desc)
+    elsif params[:sort] == "most_recent"
+      @questions = Question.all.order(created_at: :desc)
+    else
+      @questions = Question.all.order(created_at: :desc)
     end
   end
 
