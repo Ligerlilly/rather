@@ -1,30 +1,37 @@
 <% unless params[:action] == 'show' %>
-  <div id="question-<%= question.id %>" class='col-md-12 text-center'>
-    <%= link_to question_path(question) do %>
-      <h1>What would you rather?</h1>
-    <% end %>
-    <%= link_to "Delete", question_path(question), remote: true, data: { confirm: 'are you sure?', method: :delete } %>
-    <hr>
+  <div id="question-container-<%= question.id %>">
 
-    <% if question.answers.count == 2 %>
-      <div id="row text-center test">
-        <% unless question.clicks.find_by_user_id(current_user.id)  %>
-          <div id="hideOnUpdate">
-            <%= link_to question_answer_path(question, question.answers.first), method: :patch, remote: true do %>
+
+    <div id="question-<%= question.id %>" class='col-md-12 text-center well'>
+      <%= link_to question_path(question) do %>
+        <h1>What would you rather?</h1>
+      <% end %>
+      <%= link_to "Delete", question_path(question), remote: true, data: { confirm: 'are you sure?', method: :delete } %>
+
+
+      <% if question.answers.count == 2 %>
+        <div id="row text-center test">
+          <% unless question.clicks.find_by_user_id(current_user.id)  %>
+            <div id="hideOnUpdate-<%= question.id %>">
+              <%= link_to question_answer_path(question, question.answers.first), method: :patch, remote: true do %>
+                <%= render 'answer_1', question: question %>
+
+             <% end %>
+             <%= link_to question_answer_path(question, question.answers.last), method: :patch, remote: true do%>
+                <%= render 'answer_2', question: question %>
+             <% end %>
+            </div>
+          <% else %>
               <%= render 'answer_1', question: question %>
-
-           <% end %>
-           <%= link_to question_answer_path(question, question.answers.last), method: :patch, remote: true do%>
               <%= render 'answer_2', question: question %>
-           <% end %>
+          <% end %>
+          <div id="showOnUpdate-<%= question.id %>">
           </div>
-        <% else %>
-            <%= render 'answer_1', question: question %>
-            <%= render 'answer_2', question: question %>
-        <% end %>
-        <div id="showOnUpdate">
         </div>
-      </div>
+
+    </div>
+
   </div>
+
   <% end %>
 <% end %>

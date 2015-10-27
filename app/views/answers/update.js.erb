@@ -1,6 +1,8 @@
 $(".vote-1-<%= @answer.question.id %>").removeClass("hidden").text("<%= @answer1_votes %>");
 $(".vote-2-<%= @answer.question.id %>").removeClass("hidden").text("<%= @answer2_votes %>");
-$("#hideOnUpdate").remove();
+$("#hideOnUpdate-<%= @answer.question.id %>").remove();
+// var hmm = $('#question-<%= @answer.question.id %>').detach();
+// $('#question-container-<%= @answer.question.id %>').append(hmm);
 
-$("#showOnUpdate").append("<%= j render 'questions/answer_1', question: @answer.question %>");
-$("#showOnUpdate").append("<%= j render 'questions/answer_2', question: @answer.question %>");
+$("#showOnUpdate-<%= @answer.question.id  %>").prepend("<%= j render 'questions/answer_1', question: @answer.question %>");
+$("#showOnUpdate-<%= @answer.question.id  %>").prepend("<%= j render 'questions/answer_2', question: @answer.question %>");
