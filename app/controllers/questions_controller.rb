@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
     @questions = Question.all.order(created_at: :desc)
     if params[:sort] == "popular"
       @questions = Question.all.order()
+    end
   end
 
   def new

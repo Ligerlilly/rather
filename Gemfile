@@ -21,6 +21,7 @@ group :development do
 end
 
 group :test, :development do
+
   gem 'rspec-rails'
   gem 'launchy'
   gem 'pry'
@@ -31,4 +32,6 @@ group :test do
   gem 'factory_girl_rails'
   gem 'simplecov', require: false
   gem 'capybara'
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end

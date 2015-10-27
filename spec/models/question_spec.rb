@@ -13,8 +13,9 @@ describe Question do
     end
 
     it "should fail and say that 'only 2 answer are allowed'" do
-      @answer3 = Answer.create!(question_id: @question.id, body: "This is it", picture: "Picture")
-      expect(Answer.count).to eq 2
+      @answer3 = Answer.new(question_id: @question.id, body: "This is it", picture: "Picture")
+
+      expect(Answer.all.count).to eq 2
     end
   end
 
